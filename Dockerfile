@@ -11,9 +11,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and extract WordPress
-COPY wordpress.tar.gz /tmp/
-RUN tar -xzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 \
-    && rm /tmp/wordpress.tar.gz
+COPY wordpress /var/www/html
 
 # Set up WordPress permissions
 RUN chown -R www-data:www-data /var/www/html \
